@@ -1,4 +1,5 @@
 import { StyledPokeCard } from "./styledPokeCard"
+import './card.css'
 
 interface CardProps {
     pName: string,
@@ -11,7 +12,6 @@ export const PokeCard = ({pName, pImage}:CardProps) => {
         <StyledPokeCard>
             <p>{pName}</p>
             <img src={pImage} alt={pName} />
-            {/* <img src="https://placehold.co/200x300" alt="pokemon name" /> */}
         </StyledPokeCard>
     )
 }
