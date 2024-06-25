@@ -6,6 +6,8 @@ export const StyledHeader = styled.header`
     align-items: center;
     width: 100%;
     padding: 0rem 4rem 1rem;
+    background-color: #2c2c2c;
+    color: #ffffff;
     // position: sticky;
     // top: 0;
 
