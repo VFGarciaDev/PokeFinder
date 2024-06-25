@@ -1,7 +1,6 @@
-import { createContext, useContext, useEffect, useState } from "react"
-import { fetchPokemonData, getPokemonList } from "../json/data";
+import { createContext, useContext, useState } from "react"
 
-type Count = number;
+export type Count = number;
 
 type ContextProps = {
     children: React.ReactNode
@@ -31,16 +30,6 @@ export function PokemonProvider
             setCount(count)
         }
     }
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetchPokemonData(count)
-            setData(response)
-            const p = await getPokemonList(count)
-            setPokeInfo(p)
-        }
-        fetchData()
-    }, [count])
 
     return (
         <PokemonContext.Provider {...props} value={value}>
