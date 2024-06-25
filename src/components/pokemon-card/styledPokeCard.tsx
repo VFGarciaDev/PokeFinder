@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledPokeCard = styled.a`
     position: relative;
-    width: 150px;
+    width: 200px;
     aspect-ratio: 0.75;
     display: flex;
     overflow: hidden;
@@ -25,7 +25,18 @@ export const StyledPokeCard = styled.a`
     }
     img {
         display: block;
-        padding-top: 28px;
+        padding: 28px 0 34px;
         width: 100%;
+    }
+    .typeList {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 5px;
+        color: #ffffff;
+        background-color: hsl(0, 0%, 95%, 0.2);
     }
 `
