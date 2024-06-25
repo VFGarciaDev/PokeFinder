@@ -1,7 +1,9 @@
 import { StyledHero } from "./styledHero"
-import { PokeCard } from "../poke-card/pokeCard"
+import { PokeCard } from "../pokemon-card/pokeCard"
 import { fetchPokemonData, getPokemonList } from "../../json/data"
 import { useEffect, useState } from "react"
+import { useCount } from "../../contexts/pokemon-context";
+import { getPokemonCount } from "../../json/pokemon-data";
 
 interface Pokemon {
     name: string;
@@ -14,38 +16,39 @@ interface PokemonData {
     results: Pokemon[];
 }
 
-export const Hero = () => {
-    const [pokeCount, setPokeCount] = useState(10)
-    const [data, setData] = useState<PokemonData | null>(null)
-    const [pokeInfo, setPokeInfo] = useState<any[]>([])
+const totalCount = await getPokemonCount()
 
+export const Hero = () => {
+    const { count, setCount } = useCount()
+    const [data, setData] = useState<PokemonData | null>(null)
+    // data { count, next, previous, results }
+    const [pokeInfo, setPokeInfo] = useState<any[]>([])
+    // data [ {p1},{p2},{p3},... ]
+
+    //console.log(pokeInfo)
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetchPokemonData(pokeCount)
+            const response = await fetchPokemonData(count)
             setData(response)
-            const p = await getPokemonList(pokeCount)
+            const p = await getPokemonList(count)
             setPokeInfo(p)
-            console.log(p)
         }
         fetchData()
-        console.log(pokeInfo)
-    }, [pokeCount])
+    }, [count])
 
     const handleGetMorePokemons = () => {
-        console.log(pokeCount)
-        setPokeCount(prevCount => prevCount + 10)
-        console.log(pokeCount)
-        console.log("oi")
+        setCount(count + 10)
     }
 
     return (
         <StyledHero>
-            <div>
-                <p>Count: <span>{data && data.count}</span></p>
-            </div>
+            <nav className="nav">
+                <p>Count: <span>{totalCount}</span></p>
+                <p>filter</p>
+            </nav>
             <section className="card-container">
                 {pokeInfo.map((value, index) => (
-                    <PokeCard key={index} pName={value.name} pImage={value.sprites.front_default} />
+                    <PokeCard key={index} pName={value.name} pImage={value.sprites.front_default} pTypes={value.types} />
                 ))}
             </section>
             <button className="btnSeeMore" onClick={handleGetMorePokemons}>Ver mais</button>
