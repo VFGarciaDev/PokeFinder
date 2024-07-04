@@ -1,16 +1,22 @@
 import './assets/styles/App.css'
-import { Footer } from './components/footer/footer'
+import { PokemonProvider } from './contexts/pokemon-context'
+
 import { Header } from './components/header/header'
-import { Hero } from './components/hero/hero'
+import { Footer } from './components/footer/footer'
+
+import { RouterProvider } from 'react-router-dom'
+import { routes } from './pages/routes'
 
 function App() {
 
   return (
-    <>
+    <PokemonProvider>
       <Header />
-      <Hero />
+
+      <RouterProvider router={routes} />
+
       <Footer />
-    </>
+    </PokemonProvider>
   )
 }
 
