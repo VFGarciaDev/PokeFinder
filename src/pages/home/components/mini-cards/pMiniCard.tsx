@@ -1,5 +1,5 @@
 import { StyledPokeCard } from "./styledMiniCard"
-import './card.css'
+//import './card.css'
 import { ColorType, colors } from "@/contexts/custom-typeColor"
 
 type MiniCard = {
