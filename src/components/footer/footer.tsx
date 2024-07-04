@@ -1,16 +1,30 @@
-import { StyledFooter } from "./styledFooter"
+import styled from "styled-components"
+
+const StyledFooter = styled.div`
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    a {
+        margin-left: 5px;
+        color: darkblue;
+        font-weight: 700;
+    }
+`
 
 export const Footer = () => {
-    
+
     return (
         <StyledFooter>
-            <div className="author">
-                <p>@created by: </p>
-                <a href="https://github.com/VFGarciaDev" target="_blank" rel="noreferrer noopener">Victor Garcia</a>
-            </div>
-            <div>
-                social
-            </div>
+            <p> @created by:
+                <a href="https://vgarcia-portfolio.vercel.app"
+                    target="_blank" rel="noreferrer noopener">
+                    Victor Garcia
+                </a>
+            </p>
         </StyledFooter>
     )
 }
