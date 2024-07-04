@@ -1,13 +1,13 @@
+import { ColoredCard } from "@/contexts/custom-typeColor";
 import styled from "styled-components";
 
-export const StyledPokeCard = styled.a`
+export const StyledPokeCard = styled(ColoredCard)`
     position: relative;
     width: 200px;
     aspect-ratio: 0.75;
     display: flex;
     overflow: hidden;
     border-radius: 10px;
-    background-color: #1A1A1A;
     cursor: pointer;
     transition: transform 0.3s ease-out;
     &:hover {
@@ -26,7 +26,8 @@ export const StyledPokeCard = styled.a`
     img {
         display: block;
         padding: 28px 0 34px;
-        width: 100%;
+        width: 80%;
+        margin: 0 auto;
     }
     .typeList {
         position: absolute;
