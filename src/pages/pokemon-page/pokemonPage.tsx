@@ -15,7 +15,7 @@ export const PokemonPage = () => {
     return (
         <StyledPokemonPage>
             {pokemonId &&
-                <DetailedPokemonCard pokemonId={parseInt(pokemonId, 10)} />
+                <DetailedPokemonCard pokemonId={pokemonId} />
             }
         </StyledPokemonPage>
     )

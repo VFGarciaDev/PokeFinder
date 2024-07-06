@@ -23,7 +23,7 @@ export type PokeProps = {
     moves: { move: { name: string } }[]
 }
 
-export const DetailedPokemonCard = ({ pokemonId }: { pokemonId: number }) => {
+export const DetailedPokemonCard = ({ pokemonId }: { pokemonId: string }) => {
     const [pokeInfo, setPokeInfo] = useState<PokeProps | null>(null)
     const [pokeSkill, setPokeSkill] = useState<SkillProps[] | null>(null)
     const [pokeText, setPokeText] = useState<string>("")
